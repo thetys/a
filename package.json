@@ -39,11 +39,11 @@
       "@vue/standard",
       "@vue/typescript"
     ],
-    "rules": {
-      "semi": "error"
-    },
     "parserOptions": {
       "parser": "typescript-eslint-parser"
+    },
+    "rules": {
+      "semi": [2, "always"]
     }
   },
   "postcss": {
