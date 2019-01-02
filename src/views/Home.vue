@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import CharacterList from '@/components/CharacterList.vue'
+import { Component, Vue } from 'vue-property-decorator';
+import CharacterList from '@/components/CharacterList.vue';
 
 @Component({
   components: {
