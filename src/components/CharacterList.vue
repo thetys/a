@@ -22,7 +22,7 @@ export default class CharacterList extends Vue {
 
   private getCharacters () {
     this.characters = [];
-    return characterService.getCharacters().then(response => (this.characters = response.data));
+    characterService.getCharacters().then(response => (this.characters = response.data));
   }
 }
 </script>

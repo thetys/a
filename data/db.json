@@ -2,11 +2,13 @@
   "characters": [
     {
       "id": 1,
-      "name": "A"
+      "name": "A",
+      "description": "Le héros de l'histoire"
     },
     {
       "id": 2,
-      "name": "Cathy Penneflamme"
+      "name": "Cathy Penneflamme",
+      "decription": "Journaliste au monde depuis 1875"
     }
   ]
 }
