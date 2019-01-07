@@ -1,13 +1,24 @@
 import { Character } from '@/models/character';
 import { CharactersState } from './types';
-import { Module } from 'vuex';
+import { ActionTree, GetterTree, Module, MutationTree } from 'vuex';
 import { RootState } from '@/store/types';
+import { characterService } from '@/services/character.service';
 
 const state: CharactersState = {
   all: []
 };
 
-const mutations = {
+const getters: GetterTree<CharactersState, RootState> = {};
+
+const actions: ActionTree<CharactersState, RootState> = {
+  getAllCharacters ({ commit }) {
+    characterService.getCharacters().then(
+      value => commit('setCharacters', value.data)
+    );
+  }
+};
+
+const mutations: MutationTree<CharactersState> = {
   setCharacters (state: CharactersState, characters: Character[]) {
     state.all = characters;
   }
@@ -16,5 +27,7 @@ const mutations = {
 export const characters: Module<CharactersState, RootState> = {
   namespaced: true,
   state,
+  getters,
+  actions,
   mutations
 };

@@ -7,22 +7,21 @@
   </div>
 </template>
 
+<!--suppress JSUnusedGlobalSymbols -->
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { Character } from '@/models/character';
-import { characterService } from '@/services/character.service';
+import { Action, State } from 'vuex-class';
+
+const namespace: string = 'characters';
 
 @Component
 export default class CharacterList extends Vue {
-  characters: Character[] = [];
+  @State('all', { namespace }) characters!: Character[];
+  @Action('getAllCharacters', { namespace }) getAllCharacters: any;
 
   created () {
-    this.getCharacters();
-  }
-
-  private getCharacters () {
-    this.characters = [];
-    characterService.getCharacters().then(response => (this.characters = response.data));
+    this.getAllCharacters();
   }
 }
 </script>
