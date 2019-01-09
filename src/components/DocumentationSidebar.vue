@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar">
+  <div>
     <CharacterList />
   </div>
 </template>

@@ -8,7 +8,11 @@ const state: CharactersState = {
   all: []
 };
 
-const getters: GetterTree<CharactersState, RootState> = {};
+const getters: GetterTree<CharactersState, RootState> = {
+  getCharacterById: (state) => (id: number): Character|undefined => {
+    return state.all.find(char => char.id === id);
+  }
+};
 
 const actions: ActionTree<CharactersState, RootState> = {
   getAllCharacters ({ commit }) {
