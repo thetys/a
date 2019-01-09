@@ -8,8 +8,7 @@
 <!--suppress JSUnusedGlobalSymbols -->
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { Getter, namespace } from 'vuex-class';
-import { Character } from '@/models/character';
+import { namespace } from 'vuex-class';
 
 const charactersModule = namespace('characters');
 

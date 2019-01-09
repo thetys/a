@@ -10,5 +10,17 @@
       "name": "Cathy Penneflamme",
       "description": "Journaliste au monde depuis 1875"
     }
+  ],
+  "places": [
+    {
+      "id": 1,
+      "name": "Centrale Moutte",
+      "description": "Sordide prison de Loire-atlantique"
+    },
+    {
+      "id": 2,
+      "name": "JJ Facility",
+      "description": "Centre de détention longue durée personnalisé"
+    }
   ]
 }

@@ -8,9 +8,10 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { Getter } from 'vuex-class';
 import CharacterDetails from '@/components/CharacterDetails.vue';
+import PlaceDetails from '@/components/PlaceDetails.vue';
 
 @Component({
-  components: { CharacterDetails }
+  components: { CharacterDetails, PlaceDetails }
 })
 export default class DocumentationContent extends Vue {
   @Getter('selectedType', { namespace: 'documentation' }) selectedType?: string;

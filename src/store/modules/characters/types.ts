@@ -1,4 +1,4 @@
-import { Character } from '../../../models/character';
+import { Character } from '@/models/character';
 
 export interface CharactersState {
   all: Character[]
