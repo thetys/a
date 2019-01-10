@@ -7,8 +7,8 @@
 
 <script>
 import { Component, Vue } from 'vue-property-decorator';
-import CharacterList from './CharacterList';
-import PlaceList from './PlaceList';
+import CharacterList from '../character/CharacterList';
+import PlaceList from '../place/PlaceList';
 
 @Component({
   components: { CharacterList, PlaceList }

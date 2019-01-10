@@ -8,8 +8,8 @@
 <!--suppress TypeScriptCheckImport -->
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import DocumentationSidebar from '@/components/DocumentationSidebar.vue';
-import DocumentationContent from '@/components/DocumentationContent.vue';
+import DocumentationSidebar from '@/components/documentation/DocumentationSidebar.vue';
+import DocumentationContent from '@/components/documentation/DocumentationContent.vue';
 
 @Component({
   components: {

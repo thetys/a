@@ -7,8 +7,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { Getter } from 'vuex-class';
-import CharacterDetails from '@/components/CharacterDetails.vue';
-import PlaceDetails from '@/components/PlaceDetails.vue';
+import CharacterDetails from '../character/CharacterDetails.vue';
+import PlaceDetails from '../place/PlaceDetails.vue';
 
 @Component({
   components: { CharacterDetails, PlaceDetails }

@@ -1,10 +1,10 @@
-import axios from 'axios'
-import {Place} from '@/models/place';
+import axios from 'axios';
+import { Place } from '@/models/place';
 
 const api = 'api';
 
 class PlaceService {
-  getPlaces() {
+  getPlaces () {
     return axios.get<Place[]>(`${api}/places`);
   }
 }
