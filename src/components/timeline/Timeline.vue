@@ -1,5 +1,5 @@
 <template>
-  <div id="timeline-embed"></div>
+  <div id="timeline-embed" style="width: 100%; height: 600px"></div>
 </template>
 
 <script lang="ts">
@@ -16,6 +16,10 @@ export default class TimelineVue extends Vue {
   timeline!: TL.ITimeline;
   timelineJson: TL.ITimelineConfig = {
     events: []
+  };
+  timelineOptions: TL.ITimelineOptions = {
+    debug: true,
+    language: 'fr'
   };
 
   async mounted () {
@@ -42,7 +46,7 @@ export default class TimelineVue extends Vue {
       }
       return ret;
     });
-    this.timeline = new TL.Timeline('timeline-embed', this.timelineJson);
+    this.timeline = new TL.Timeline('timeline-embed', this.timelineJson, this.timelineOptions);
   }
 
   updated () {
