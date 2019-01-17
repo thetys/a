@@ -1,19 +1,22 @@
 <template>
-  <div>{{timeline}}</div>
+  <div id="timeline-embed"></div>
 </template>
 
 <script lang="ts">
+/// <reference path="../../../node_modules/@types/timelinejs3/index.d.ts" />
 import { Component, Vue } from 'vue-property-decorator';
-
-declare const TL: any;
 
 @Component
 export default class TimelineVue extends Vue {
-  timeline: any;
+  timeline!: TL.ITimeline;
 
-  created () {
+  mounted () {
     this.timeline = new TL.Timeline('timeline-embed',
       'https://docs.google.com/spreadsheets/d/1cWqQBZCkX9GpzFtxCWHoqFXCHg-ylTVUWlnrdYMzKUI/pubhtml');
+  }
+
+  updated () {
+    this.timeline.updateDisplay();
   }
 }
 </script>
