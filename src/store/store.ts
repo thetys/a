@@ -6,6 +6,7 @@ import { RootState } from '@/store/types';
 import { characters } from '@/store/modules/characters/module';
 import { documentation } from '@/store/modules/documentation/module';
 import { places } from '@/store/modules/places/module';
+import { events } from '@/store/modules/events/module';
 
 Vue.use(Vuex);
 
@@ -15,6 +16,7 @@ const store: StoreOptions<RootState> = {
   modules: {
     characters,
     places,
+    events,
     documentation
   },
   strict: debug,

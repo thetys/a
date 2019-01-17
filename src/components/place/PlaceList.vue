@@ -10,7 +10,7 @@
 <!--suppress JSUnusedGlobalSymbols -->
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Place } from '../../models/place';
+import { Place } from '@/models/place';
 import { Action, State } from 'vuex-class';
 
 @Component

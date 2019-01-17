@@ -22,5 +22,17 @@
       "name": "JJ Facility",
       "description": "Centre de détention longue durée personnalisé"
     }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "name": "Evasion de Centrale Moutte",
+      "start_date": "2017-11-21"
+    },
+    {
+      "id": 2,
+      "name": "Incarcération au JJ Facility",
+      "start_date": "2018-05-01"
+    }
   ]
 }
