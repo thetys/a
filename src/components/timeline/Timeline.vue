@@ -33,15 +33,15 @@ export default class TimelineVue extends Vue {
       const startDate = moment(event.start_date);
       ret.start_date = {
         year: startDate.year(),
-        month: startDate.month(),
-        day: startDate.day()
+        month: startDate.month() + 1,
+        day: startDate.date()
       };
       if (event.end_date) {
         const endDate = moment(event.end_date === 'now' ? {} : event.end_date);
         ret.end_date = {
           year: endDate.year(),
-          month: endDate.month(),
-          day: endDate.day()
+          month: endDate.month() + 1,
+          day: endDate.date()
         };
       }
       return ret;
