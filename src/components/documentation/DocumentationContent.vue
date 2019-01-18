@@ -7,11 +7,12 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { Getter } from 'vuex-class';
-import CharacterDetails from '../character/CharacterDetails.vue';
-import PlaceDetails from '../place/PlaceDetails.vue';
+import CharacterDetails from '@/components/character/CharacterDetails.vue';
+import PlaceDetails from '@/components/place/PlaceDetails.vue';
+import EventDetails from '@/components/event/EventDetails.vue';
 
 @Component({
-  components: { CharacterDetails, PlaceDetails }
+  components: { CharacterDetails, PlaceDetails, EventDetails }
 })
 export default class DocumentationContent extends Vue {
   @Getter('selectedType', { namespace: 'documentation' }) selectedType?: string;
