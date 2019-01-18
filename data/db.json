@@ -27,6 +27,7 @@
     {
       "id": 1,
       "name": "Evasion de Centrale Moutte",
+      "description": "<a href='#/documentation/character/1'>A</a> déclenche une émeute au sein de <a href='#/documentation/place/1'>Centrale Moutte</a> et s'évade dans la confusion.",
       "start_date": "2017-11-21"
     },
     {

@@ -2,7 +2,9 @@
   <div class="occurence-list">
     <h2>Evénements</h2>
     <ul>
-      <li v-for="occurence in occurences" :key="occurence.id" @click="selectOccurence(occurence.id)">{{ occurence.name}}</li>
+      <li v-for="occurence in occurences" :key="occurence.id">
+        <router-link :to="{ name: 'documentation-details', params: { id: occurence.id, type: 'occurences' } }">{{ occurence.name}}</router-link>
+      </li>
     </ul>
   </div>
 </template>
@@ -17,14 +19,9 @@ import { Action, State } from 'vuex-class';
 export default class OccurenceList extends Vue {
   @State('all', { namespace: 'occurences' }) occurences!: Occurence[];
   @Action('getAllOccurences', { namespace: 'occurences' }) getAllOccurences: any;
-  @Action('select', { namespace: 'documentation' }) select: any;
 
   created () {
     this.getAllOccurences();
-  }
-
-  selectOccurence (id: number) {
-    this.select({ id, type: 'occurence' });
   }
 }
 </script>

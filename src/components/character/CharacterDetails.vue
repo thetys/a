@@ -1,5 +1,5 @@
 <template>
-  <div class="character-details">
+  <div class="character-details" v-if="character">
     <h1>{{ character.name }}</h1>
     <p>{{ character.description }}</p>
   </div>

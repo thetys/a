@@ -15,7 +15,13 @@ export default new Router({
     {
       path: '/documentation',
       name: 'documentation',
-      component: Documentation
+      component: Documentation,
+      children: [
+        {
+          path: ':type(characters|places|occurences)/:id',
+          name: 'documentation-details'
+        }
+      ]
     }
   ]
 });

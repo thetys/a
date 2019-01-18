@@ -1,12 +1,11 @@
 <template>
-  <component v-if="selectedType"
+  <component v-if="this.$route.params['type']"
              v-bind:is="selectedComponent"
-             v-bind:id="selectedId" />
+             v-bind:id="this.$route.params['id']" />
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Getter } from 'vuex-class';
 import CharacterDetails from '@/components/character/CharacterDetails.vue';
 import PlaceDetails from '@/components/place/PlaceDetails.vue';
 import OccurenceDetails from '@/components/occurence/OccurenceDetails.vue';
@@ -15,11 +14,15 @@ import OccurenceDetails from '@/components/occurence/OccurenceDetails.vue';
   components: { CharacterDetails, PlaceDetails, OccurenceDetails }
 })
 export default class DocumentationContent extends Vue {
-  @Getter('selectedType', { namespace: 'documentation' }) selectedType?: string;
-  @Getter('selectedId', { namespace: 'documentation' }) selectedId?: string;
-
   get selectedComponent () {
-    return this.selectedType ? this.selectedType.toLowerCase() + '-details' : '';
+    return this.$route.params['type'] ? this.$route.params['type'].replace(/s$/, '').toLowerCase() + '-details' : '';
+  }
+
+  // beforeRouteUpdate (to, from, next) {
+  //   next();
+  // }
+  updated () {
+    console.log(this.$route.params['id']);
   }
 }
 </script>

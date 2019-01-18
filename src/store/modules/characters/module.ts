@@ -16,7 +16,7 @@ const getters: GetterTree<CharactersState, RootState> = {
 
 const actions: ActionTree<CharactersState, RootState> = {
   getAllCharacters ({ commit }) {
-    characterService.getCharacters().then(
+    return characterService.getCharacters().then(
       value => commit('setCharacters', value.data)
     );
   }

@@ -24,34 +24,39 @@ export default class TimelineVue extends Vue {
 
   async mounted () {
     await this.getAlloccurences();
-    this.timelineJson['events'] = await this.occurences.map<TL.ITimelineSlideData>(occurence => {
-      let ret: TL.ITimelineSlideData = {
-        text: {
-          headline: occurence.name
-        }
-      };
-      const startDate = moment(occurence.start_date);
-      ret.start_date = {
-        year: startDate.year(),
-        month: startDate.month() + 1,
-        day: startDate.date()
-      };
-      if (occurence.end_date) {
-        const endDate = moment(occurence.end_date === 'now' ? {} : occurence.end_date);
-        ret.end_date = {
-          year: endDate.year(),
-          month: endDate.month() + 1,
-          day: endDate.date()
-        };
-      }
-      return ret;
-    });
+    this.timelineJson['events'] = await this.occurences.map<TL.ITimelineSlideData>(this.prepare);
     // noinspection TypeScriptValidateTypes
     this.timeline = new TL.Timeline('timeline-embed', this.timelineJson, this.timelineOptions);
   }
 
   updated () {
     this.timeline.updateDisplay();
+  }
+
+  prepare (occurence: Occurence) {
+    let ret: TL.ITimelineSlideData = {
+      text: {
+        headline: occurence.name
+      }
+    };
+    if (occurence.description) {
+      ret.text['text'] = occurence.description;
+    }
+    const startDate = moment(occurence.start_date);
+    ret.start_date = {
+      year: startDate.year(),
+      month: startDate.month() + 1,
+      day: startDate.date()
+    };
+    if (occurence.end_date) {
+      const endDate = moment(occurence.end_date === 'now' ? {} : occurence.end_date);
+      ret.end_date = {
+        year: endDate.year(),
+        month: endDate.month() + 1,
+        day: endDate.date()
+      };
+    }
+    return ret;
   }
 }
 </script>
