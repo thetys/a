@@ -6,38 +6,38 @@
 /// <reference path="../../../node_modules/@types/timelinejs3/index.d.ts" />
 import { Component, Vue } from 'vue-property-decorator';
 import { Action, State } from 'vuex-class';
-import { Event } from '@/models/event';
+import { Occurence } from '@/models/occurence';
 import moment from 'moment';
 
 @Component
 export default class TimelineVue extends Vue {
-  @State('all', { namespace: 'events' }) events!: Event[];
-  @Action('getAllEvents', { namespace: 'events' }) getAllevents: any;
+  @State('all', { namespace: 'occurences' }) occurences!: Occurence[];
+  @Action('getAllOccurences', { namespace: 'occurences' }) getAlloccurences: any;
   timeline!: TL.ITimeline;
   timelineJson: TL.ITimelineConfig = {
     events: []
   };
   timelineOptions: TL.ITimelineOptions = {
-    debug: true,
+    debug: process.env.NODE_ENV !== 'production',
     language: 'fr'
   };
 
   async mounted () {
-    await this.getAllevents();
-    this.timelineJson['events'] = await this.events.map<TL.ITimelineSlideData>(event => {
+    await this.getAlloccurences();
+    this.timelineJson['events'] = await this.occurences.map<TL.ITimelineSlideData>(occurence => {
       let ret: TL.ITimelineSlideData = {
         text: {
-          headline: event.name
+          headline: occurence.name
         }
       };
-      const startDate = moment(event.start_date);
+      const startDate = moment(occurence.start_date);
       ret.start_date = {
         year: startDate.year(),
         month: startDate.month() + 1,
         day: startDate.date()
       };
-      if (event.end_date) {
-        const endDate = moment(event.end_date === 'now' ? {} : event.end_date);
+      if (occurence.end_date) {
+        const endDate = moment(occurence.end_date === 'now' ? {} : occurence.end_date);
         ret.end_date = {
           year: endDate.year(),
           month: endDate.month() + 1,
@@ -46,6 +46,7 @@ export default class TimelineVue extends Vue {
       }
       return ret;
     });
+    // noinspection TypeScriptValidateTypes
     this.timeline = new TL.Timeline('timeline-embed', this.timelineJson, this.timelineOptions);
   }
 

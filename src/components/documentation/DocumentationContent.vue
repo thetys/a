@@ -9,10 +9,10 @@ import { Component, Vue } from 'vue-property-decorator';
 import { Getter } from 'vuex-class';
 import CharacterDetails from '@/components/character/CharacterDetails.vue';
 import PlaceDetails from '@/components/place/PlaceDetails.vue';
-import EventDetails from '@/components/event/EventDetails.vue';
+import OccurenceDetails from '@/components/occurence/OccurenceDetails.vue';
 
 @Component({
-  components: { CharacterDetails, PlaceDetails, EventDetails }
+  components: { CharacterDetails, PlaceDetails, OccurenceDetails }
 })
 export default class DocumentationContent extends Vue {
   @Getter('selectedType', { namespace: 'documentation' }) selectedType?: string;

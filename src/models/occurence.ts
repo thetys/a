@@ -1,4 +1,4 @@
-export class Event {
+export class Occurence {
   constructor(public id: number,
               public name: string,
               public start_date: string,

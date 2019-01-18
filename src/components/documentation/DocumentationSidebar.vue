@@ -2,7 +2,7 @@
   <div>
     <CharacterList />
     <PlaceList />
-    <EventList />
+    <OccurenceList />
   </div>
 </template>
 
@@ -10,10 +10,10 @@
 import { Component, Vue } from 'vue-property-decorator';
 import CharacterList from '@/components/character/CharacterList';
 import PlaceList from '@/components/place/PlaceList';
-import EventList from '@/components/event/EventList';
+import OccurenceList from '@/components/occurence/OccurenceList';
 
 @Component({
-  components: { CharacterList, PlaceList, EventList }
+  components: { CharacterList, PlaceList, OccurenceList }
 })
 export default class DocumentationSidebar extends Vue {
 }

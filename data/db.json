@@ -23,7 +23,7 @@
       "description": "Centre de détention longue durée personnalisé"
     }
   ],
-  "events": [
+  "occurences": [
     {
       "id": 1,
       "name": "Evasion de Centrale Moutte",
