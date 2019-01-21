@@ -1,9 +1,9 @@
 <template>
-  <div class="occurence-details">
+  <div class="occurence-details" v-if="this.occurence">
     <h1>{{ this.occurence.name }}</h1>
     <h3 v-if="this.occurence.end_date">Du {{ this.occurence.start_date | moment('D MMMM Y')}} au {{ this.occurence.end_date | moment('D MMMM Y')}}</h3>
     <h3 v-else>{{ this.occurence.start_date | moment('D MMMM Y')}}</h3>
-    <p>{{ this.occurence.description }}</p>
+    <p v-html="this.occurence.description"></p>
   </div>
 </template>
 
@@ -17,7 +17,7 @@ const occurencesModule = namespace('occurences');
 
 @Component
 export default class OccurenceDetails extends Vue {
-  @Prop() id!: number;
+  @Prop(Number) id!: number;
 
   @occurencesModule.Getter getOccurenceById: any;
 

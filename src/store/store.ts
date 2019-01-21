@@ -4,7 +4,6 @@ import createLogger from 'vuex/dist/logger';
 
 import { RootState } from '@/store/types';
 import { characters } from '@/store/modules/characters/module';
-import { documentation } from '@/store/modules/documentation/module';
 import { places } from '@/store/modules/places/module';
 import { occurences } from '@/store/modules/occurences/module';
 
@@ -16,8 +15,7 @@ const store: StoreOptions<RootState> = {
   modules: {
     characters,
     places,
-    occurences,
-    documentation
+    occurences
   },
   strict: debug,
   plugins: debug ? [createLogger({})] : []
