@@ -36,12 +36,10 @@ export default class TimelineVue extends Vue {
   prepare (occurence: Occurence) {
     let ret: TL.ITimelineSlideData = {
       text: {
-        headline: occurence.name
+        headline: occurence.name,
+        text: occurence.description ? occurence.description : undefined
       }
     };
-    if (occurence.description) {
-      ret.text['text'] = occurence.description;
-    }
     const startDate = moment(occurence.start_date);
     ret.start_date = {
       year: startDate.year(),

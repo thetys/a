@@ -9,7 +9,7 @@ const state: CharactersState = {
 };
 
 const getters: GetterTree<CharactersState, RootState> = {
-  getCharacterById: (state) => (id: number): Character|undefined => {
+  getCharacterById: (state) => (id: number): Character | undefined => {
     return state.all.find(char => char.id === id);
   }
 };
