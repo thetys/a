@@ -1,10 +1,10 @@
-import axios from 'axios'
-import {Character} from '@/models/character';
+import axios from 'axios';
+import { Character } from '@/models/character';
 
 const api = 'api';
 
 class CharacterService {
-  getCharacters() {
+  getCharacters () {
     return axios.get<Character[]>(`${api}/characters`);
   }
 }
