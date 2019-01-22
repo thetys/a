@@ -33,7 +33,7 @@ export default class TimelineVue extends Vue {
     this.timeline.updateDisplay();
   }
 
-  prepare (occurence: Occurence) {
+  private prepare (occurence: Occurence) {
     let text: any = {
       headline: occurence.name
     };
