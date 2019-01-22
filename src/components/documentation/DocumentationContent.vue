@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import CharacterDetails from '@/components/character/CharacterDetails.vue';
 import PlaceDetails from '@/components/place/PlaceDetails.vue';
 import OccurenceDetails from '@/components/occurence/OccurenceDetails.vue';

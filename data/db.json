@@ -28,12 +28,12 @@
       "id": 1,
       "name": "Evasion de Centrale Moutte",
       "description": "<a href='#/documentation/characters/1'>A</a> déclenche une émeute au sein de <a href='#/documentation/places/1'>Centrale Moutte</a> et s'évade dans la confusion.",
-      "start_date": "2017-11-21"
+      "start_date": "2017-11-21T00:00:00"
     },
     {
       "id": 2,
       "name": "Incarcération au JJ Facility",
-      "start_date": "2018-05-01"
+      "start_date": "2018-05-01T00:00:00"
     }
   ]
 }

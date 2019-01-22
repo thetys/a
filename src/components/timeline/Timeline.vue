@@ -43,21 +43,23 @@ export default class TimelineVue extends Vue {
     let ret: TL.ITimelineSlideData = {
       text: text
     };
-    const startDate = moment(occurence.start_date);
-    ret.start_date = {
-      year: startDate.year(),
-      month: startDate.month() + 1,
-      day: startDate.date()
-    };
+    ret.start_date = this.dateStringToObject(occurence.start_date);
     if (occurence.end_date) {
-      const endDate = moment(occurence.end_date === 'now' ? {} : occurence.end_date);
-      ret.end_date = {
-        year: endDate.year(),
-        month: endDate.month() + 1,
-        day: endDate.date()
-      };
+      ret.end_date = this.dateStringToObject(occurence.end_date === 'now' ? {} : occurence.end_date);
     }
     return ret;
+  }
+
+  private dateStringToObject (date: moment.MomentInput) {
+    const dateObject = moment(date);
+    return {
+      year: dateObject.year(),
+      month: dateObject.month() + 1,
+      day: dateObject.date(),
+      hour: dateObject.hour(),
+      minute: dateObject.minute(),
+      second: dateObject.second()
+    };
   }
 }
 </script>
