@@ -1,8 +1,9 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { createLocalVue, mount, shallowMount } from '@vue/test-utils';
 import Vuex from 'vuex';
 import CharacterList from '@/components/character/CharacterList.vue';
 import { cloneDeep } from 'lodash';
 import VueRouter from 'vue-router';
+import routes from '@/routes';
 
 const localVue = createLocalVue();
 
@@ -44,5 +45,17 @@ describe('CharacterList', () => {
     const store = new Vuex.Store(cloneDeep(storeOptions));
     const wrapper = shallowMount(CharacterList, {store, localVue});
     expect(wrapper.findAll('li').length).toBe(2);
+  });
+
+  it('should create a link to character details', () => {
+    storeOptions.modules.characters.state = {
+      all: [
+        {id: 1, name: 'name1', description: 'description1'}
+      ]
+    };
+    const router = new VueRouter({ routes });
+    const store = new Vuex.Store(cloneDeep(storeOptions));
+    const wrapper = mount(CharacterList, {store, localVue, router});
+    expect(wrapper.find('li > a').attributes('href')).toBe('#/documentation/characters/1')
   });
 });
