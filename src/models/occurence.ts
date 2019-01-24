@@ -3,5 +3,5 @@ export class Occurence {
               public name: string,
               public description: string,
               public start_date: string,
-              public end_date: string) {}
+              public end_date?: string) {}
 }
