@@ -12,7 +12,7 @@ import moment from 'moment';
 @Component
 export default class TimelineVue extends Vue {
   @State('all', { namespace: 'occurences' }) occurences!: Occurence[];
-  @Action('getAllOccurences', { namespace: 'occurences' }) getAlloccurences: any;
+  @Action('getAllOccurences', { namespace: 'occurences' }) getAllOccurences: any;
   timeline!: TL.ITimeline;
   timelineJson: TL.ITimelineConfig = {
     events: []
@@ -23,7 +23,7 @@ export default class TimelineVue extends Vue {
   };
 
   async mounted () {
-    await this.getAlloccurences();
+    await this.getAllOccurences();
     this.timelineJson['events'] = await this.occurences.map<TL.ITimelineSlideData>(this.prepare);
     // noinspection TypeScriptValidateTypes
     this.timeline = new TL.Timeline('timeline-embed', this.timelineJson, this.timelineOptions);
