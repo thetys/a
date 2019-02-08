@@ -1,0 +1,6 @@
+query PlacesName {
+    places {
+        id
+        name
+    }
+}

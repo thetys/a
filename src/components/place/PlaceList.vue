@@ -9,19 +9,22 @@
   </div>
 </template>
 
-<!--suppress JSUnusedGlobalSymbols -->
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Place } from '@/models/place';
-import { Action, State } from 'vuex-class';
+import query from '@/queries/places.gql';
 
-@Component
+@Component({
+  apollo: {
+    places: {
+      query: query,
+      prefetch: true
+    }
+  }
+})
 export default class PlaceList extends Vue {
-  @State('all', { namespace: 'places' }) places!: Place[];
-  @Action('getAllPlaces', { namespace: 'places' }) getAllPlaces: any;
-
   created () {
-    this.getAllPlaces();
+    console.log(query);
+    console.log(this.$apollo.queries);
   }
 }
 </script>

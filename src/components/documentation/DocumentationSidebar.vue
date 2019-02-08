@@ -1,8 +1,8 @@
 <template>
   <div>
-    <CharacterList />
+    <!--<CharacterList />-->
     <PlaceList />
-    <OccurenceList />
+    <!--<OccurenceList />-->
   </div>
 </template>
 
